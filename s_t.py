@@ -15,21 +15,21 @@ from gtts import gTTS
 from googletrans import Translator
 
 
-st.title("TRADUCTOR.")
-st.subheader("Oigo lo que deseas traducir.")
+st.title("🌍 TRADUCTOR 🌍.")
+st.subheader("Escucho tu texto para traducir.")
 
 
-image = Image.open('OIG7.png')
+image = Image.open('D.png')
 
 st.image(image,width=300)
 with st.sidebar:
     st.subheader("Traductor.")
-    st.write("Pulsa el botón cuando oigas la señal. "
-                 "Di lo que deseas traducir, luego selecciona."   
-                 " La configuración de idioma que necesites.")
+    st.write("Presiona el botón al detectar el tono. "
+                 "Habla tu texto y elige el idioma de destino."   
+                 " Personaliza el idioma a tu necesidad.")
 
 
-st.write("Pulsa el botón cuando oigas la señal.")
+st.write("Acciona el botón al escuchar el tono.")
 
 stt_button = Button(label=" Escuchar  🎤", width=300,  height=50)
 
@@ -72,7 +72,7 @@ if result:
     
     text = str(result.get("GET_TEXT"))
     in_lang = st.selectbox(
-        "Selecciona el lenguaje de Entrada",
+        "Elige el idioma de origen",
         ("Inglés", "Español", "Bengali", "Coreano", "Mandarín", "Japonés"),
     )
     if in_lang == "Inglés":
@@ -89,7 +89,7 @@ if result:
         input_language = "ja"
     
     out_lang = st.selectbox(
-        "Selecciona el lenguaje de salida",
+        "Elige el idioma de salida",
         ("Inglés", "Español", "Bengali", "Coreano", "Mandarín", "Japonés"),
     )
     if out_lang == "Inglés":
@@ -106,7 +106,7 @@ if result:
         output_language = "ja"
     
     english_accent = st.selectbox(
-        "Selecciona el acento",
+        "Escoge el acento",
         (
             "Defecto",
             "Español",
@@ -150,7 +150,7 @@ if result:
         return my_file_name, trans_text
     
     
-    display_output_text = st.checkbox("Mostrar el texto")
+    display_output_text = st.checkbox("Visualizar el contenido")
     
     if st.button("convertir"):
         result, output_text = text_to_speech(input_language, output_language, text, tld)
